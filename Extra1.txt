@@ -1,0 +1,126 @@
+*********************************************************************
+ * File                 : Extra1.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : To calculate total marks and percentage of a student
+ * Version              : 1.0
+ * Date                 : 02-Nov-2018
+ *********************************************************************/
+RECORD Student
+	DECLARE RollNO AS INTEGER
+        DECLARE Studentname  AS STRING
+	DECLARE Stream AS STRING
+        DECLARE Subject[5]  AS INTEGER
+        
+ENDRECORD
+
+ DECLARE total AS CONSTANT 500
+ DECLARE totalmarks, i AS  INTEGER
+ DECLARE percentage AS FLOAT
+
+BEGIN
+    information()
+
+FOR i 1 TO 5
+    totalmarks+=Student.Subject[i]
+ENDFOR
+
+DISPLAY "Total marks obtained" + totalmarks
+
+percentage(totalmarks)
+
+grade(percentage)
+
+END
+/********************************************************************
+* Module Name         : information()
+* Input Parameters    : Accept
+* Return Type         : String, Integer
+* Author              : Swathi Poreddy
+* Creation Date       : 02-Nov-2018
+* Description         : To get information of the student
+ *********************************************************************/
+SUB information()
+DECLARE index as INTEGER
+
+PROMPT "Enter Student RollNo " ANS STORE IN Student.StudentRollNo
+PROMPT "Enter Student name " ANS STORE IN Student.Studentname                
+PROMPT "Enter Student Stream " ANS STORE IN Student.Stream  
+              
+GO TO isValid( Student.RollNo, Student.Studentname)              
+
+FOR index 1 TO  5
+               PROMPT "Enter Subject[]" AND STORE IN Student.Subject[]
+ENDFOR
+               
+DISPLAY Student.RollNo
+DISPLAY Student.Studentname
+DISPLAY Student.Stream
+
+FOR index 1 TO 5
+    DISPALY Student.Subject[]
+ENDFOR
+
+ENDSUB
+/*********************************************************************
+* Module Name         : percentage()
+* Input Parameters    : totalmarks
+* Return Type         : Integer
+* Author              : Swathi Poreddy
+* Creation Date       : 02-Nov-2018
+* Description         : To calculate Percentage
+ *********************************************************************/
+
+SUB percentage(totalmarks)
+percentage= (totalmarks * 100 ) / total
+DISPLAY "Percentage applied" + percentage
+ENDSUB
+
+/*********************************************************************
+* Module Name         : grade()
+* Input Parameters    : percentage
+* Return Type         : float
+* Author              : Swathi Poreddy
+* Creation Date       : 02-Nov-2018
+* Description         : To calculate Grade
+ *********************************************************************/
+
+SUB grade(percentage)
+
+IF percentage IS LESS THAN 50
+   DISPLAY Your grade is C
+
+ELSEIF percentage>=50 && percentage <60
+   DISPLAY Your grade is B
+
+ELSEIF percentage>=60 && percentage < 70
+    DISPLAY Your grade is B+
+
+ELSEIF percentage>=70 && percentage < 80
+    DISPLAY Your grade is A
+
+ELSE 
+    DISPLAY Your grade is A+
+ENDSUB
+/*********************************************************************
+* Module Name         : isValid()
+* Input Parameters    : data
+* Return Type         : BOOLEAN
+* Author              : Swathi poreddy
+* Creation Date       : 02-NOV-2018
+* Description         : To validate data for accepting digits and alphabets
+*********************************************************************/
+
+SUB isValid(Student.RollNo, Student.Studentname)
+    IF (isdigit(Student.RollNo) || isalpha(Student.RollNo)
+     RETURN TRUE
+    ELSE
+      DISPLAY "Enter valid roll number"
+    IF(isalpha(Student.Studentname)
+     RETURN TRUE
+    ELSE 
+     DISPLAY "Enter Correct name"
+ENDSUB
+
+
+   
+

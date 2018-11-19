@@ -1,0 +1,90 @@
+*********************************************************************
+ * File                 : Extra2.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : To calculate total price based on number of tickets 
+ * Version              : 1.0
+ * Date                 : 03-Nov-2018
+ *********************************************************************/
+DECLARE fareofadult AS CONSTANT 15
+DECLARE fareofchildren AS CONSTANT 8
+
+RECORD Passenger
+	DECLARE passengername AS STRING
+        DECLARE traveldate  AS INTEGER
+	DECLARE source AS STRING
+        DECLARE destination AS STRING
+        DECLARE Category AS STRING
+        DECLARE number1 as INTEGER // Based on number of adults 
+        DECLARE number2 as INTEGER // Based on number of Children 
+ENDRECORD
+BEGIN
+information()
+fare(number1,number2)
+END
+/********************************************************************
+* Module Name         : information()
+* Input Parameters    : Accept
+* Return Type         : String, Integer
+* Author              : Swathi Poreddy
+* Creation Date       : 03-Nov-2018
+* Description         : To get information of the Passenger
+ *********************************************************************/
+SUB information()
+
+PROMPT "Enter Passenger name " ANS STORE IN Passenger.passengername
+PROMPT "Enter Travel date " ANS STORE IN Passenger.traveldate             
+PROMPT "Enter Source " ANS STORE IN Passenger.source
+PROMPT "Enter destination " ANS STORE IN Passenger.destination
+PROMPT "Enter Category" ANS STORE IN Passenger.Category
+PROMPT "Enter Number of tickets  " ANS STORE IN Passenger.number  
+              
+GO TO isValid(Passenger.passengername,Passenger.traveldate , Passenger.source,Passenger.destination)           
+               
+DISPLAY Passenger.passengername
+DISPLAY Passenger.traveldate        
+DISPLAY Passenger.source
+DISPLAY Passenger.destination
+DISPLAY Passenger.Category
+DISPLAY  Passenger.number
+
+ENDSUB
+/********************************************************************
+* Module Name         : fare()
+* Input Parameters    : number1,number2
+* Return Type         :  Integer
+* Author              : Swathi Poreddy
+* Creation Date       : 03-Nov-2018
+* Description         : To Calculate fare  of the Passenger
+ *********************************************************************/
+SUB(number)
+DECLARE fare1,fare2,fare3 AS INTEGER
+IF Category == adult 
+fare1 = Passenger.number  * fareofadult
+ELSEIF Category == adult || Category == children 
+fare2 = (fareofadult+fareofchildren) * Passenger.number 
+ELSE 
+fare3 = Passenger.number  * fareofchildren
+DISPLAY fare1, fare2 ,fare3
+ENDSUB
+/*********************************************************************
+* Module Name         : isValid()
+* Input Parameters    : data
+* Return Type         : BOOLEAN
+* Author              : Swathi poreddy
+* Creation Date       : 02-NOV-2018
+* Description         : To validate data for accepting digits and alphabets
+*********************************************************************/
+
+SUB isValid(Passenger.passengername,Passenger.traveldate , Passenger.source,Passenger.destination)
+    IF (isdigit(Passenger.traveldate)
+     RETURN TRUE
+    ELSE
+      DISPLAY "Enter correct date"
+    IF(isalpha(Passenger.passengername, Passenger.source,Passenger.destination)
+     RETURN TRUE
+    ELSE 
+     DISPLAY "Enter Correct name and source, destination"
+ENDSUB
+
+
+
