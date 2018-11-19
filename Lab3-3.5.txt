@@ -1,0 +1,39 @@
+*********************************************************************
+ * File                 : Lab3-3.5.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : Function returning the number of times the character is found in the word.
+ * Version              : 1.0
+ * Date                 : 03-Nov-2018
+ *********************************************************************/
+DECLARE string, chr AS CHAR
+
+BEGIN 
+countchar(string, chr)
+END
+
+/*********************************************************************
+* Module Name         : countchar()
+* Input Parameters    : String, character
+* Return Type         : Count
+* Author              : Swathi Poreddy
+* Creation Date       : 03-Nov-2018
+* Description         : Function returning the number of times the character is found in the word.
+ *********************************************************************/
+SUB countchar(string, chr)
+DECLARE count, i AS INTEGER
+ASSIGN count=0
+FOR 
+    ASSIGN i=0
+    CHECK CONDITION i< sizeof(string)
+    INCREMENT i
+
+IF  string[i] == chr
+    INCREMENT count
+ENDIF 
+
+ENDFOR
+
+RETURN count
+SUBEND
+
+

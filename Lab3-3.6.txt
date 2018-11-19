@@ -1,0 +1,87 @@
+*********************************************************************
+ * File                 : Lab3-3.6.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : To accept 5 numbers in an array and sort the array if array is not sorted and search for a number in the array using binary search.
+ * Version              : 1.0
+ * Date                 : 03-Nov-2018
+ *********************************************************************/
+
+DECLARE c, first, last, middle, search, arr[5] AS INTEGER
+DECLARE i, j, a AS INTEGER
+BEGIN
+sort()
+search()
+END
+
+/*********************************************************************
+* Module Name         : sort()
+* Input Parameters    : numbers
+* Return Type         : numbers
+* Author              : Swathi Poreddy
+* Creation Date       : 03-Nov-2018
+* Description         : To sort the given array
+ *********************************************************************/
+SUB sort()
+PROMPT "Enter the numbers in the array"
+
+FOR(i=0; i<5 ; i++)
+ACCEPT NUMBERS IN THE ARRAY ANS STORE IN arr[i]
+ENDFOR
+
+FOR(i=0; i<5; i++)
+
+FOR(j=i+1; j<5; ++j)
+
+IF arr[i] > arr[j]
+ASSIGN a EQUALS TO arr[i]
+ASSIGN arr[i]EQUALS TO arr[j]
+ASSIGN arr[j] EQUALS TO a
+ENDIF
+
+ENDFOR
+
+ENDFOR
+
+DISPALY " Sorted elements in the array "+ arr[i]
+ENDSUB
+/*********************************************************************
+* Module Name         : search()
+* Input Parameters    : numbers
+* Return Type         : numbers
+* Author              : Swathi Poreddy
+* Creation Date       : 03-Nov-2018
+* Description         : To search the element using binary search
+ *********************************************************************/
+SUB search()
+GET THE ELEMENTS FROM arr[i]
+PROMPT "Enter the element you need to search" AND STORE IN search
+
+ASSIGN first = 0
+ASSIGN last = 4\\size-1
+ASSIGN middle = (first+ last)/2
+
+WHILE (first <= last)
+ 
+IF (arr[middle] < search)
+first = middle + 1;    
+ELSEIF (array[middle] == search) {
+DISPLAY " found at location", search, middle+1
+ELSE
+ last = middle - 1
+middle = (first + last)/2
+ENDIF
+
+IF(first > last)
+DISPLAY "Element not found"+ search
+ENDIF
+
+ENDWHILE
+ENDSUB
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+*********************************************************************
+ * File                 : Lab3-3.2.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : Description of algorithm
+ * Version              : 1.0
+ * Date                 : 02-Nov-2018
+ *********************************************************************/
+This algorithm prints first value and last value of an array. If first value is less than the last value then it prints first value 2 times

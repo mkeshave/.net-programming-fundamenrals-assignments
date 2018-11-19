@@ -1,0 +1,12 @@
+*********************************************************************
+ * File                 : Lab3-3.1.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : Description of algorithm
+ * Version              : 1.0
+ * Date                 : 02-Nov-2018
+ *********************************************************************/
+1. Algorithm displays numbers starting from 1 
+2. Which does comparing and swapping
+3. If n value is 5 then loop executes  5 times
+4. 5
+5. O(n)

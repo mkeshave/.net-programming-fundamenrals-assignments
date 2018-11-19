@@ -1,0 +1,8 @@
+*********************************************************************
+ * File                 : Lab3-3.3.txt
+ * Author Name          : Swathi Poreddy
+ * Description          : Effeciency of algorithm
+ * Version              : 1.0
+ * Date                 : 02-Nov-2018
+ *********************************************************************/
+Effeciency = O(n^3)
